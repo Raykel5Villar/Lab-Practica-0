@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, asans-serig=f;
+    background-color:#f4f4f4;
+    margin: 0;
+}
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 1rem;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
