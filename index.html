@@ -1,85 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Para Albania ❤️</title>
+<meta charset="UTF-8">
+<title>Para Albania ❤️</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            width: 350px;
-            transition: transform 0.3s ease;
-        }
+/* Tarjeta */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
 
-        .card:hover {
-            transform: scale(1.05);
-        }
+h1 {
+    color: #ff4b5c;
+}
 
-        h1 {
-            color: #ff4b5c;
-        }
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff4b5c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        button {
-            margin-top: 20px;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            background-color: #ff4b5c;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+button:hover {
+    background-color: #e63b4c;
+    transform: scale(1.05);
+}
 
-        button:hover {
-            background-color: #e63b4c;
-        }
+.mensaje {
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    font-size: 18px;
+    color: #444;
+}
 
-        .mensaje {
-            margin-top: 20px;
-            opacity: 0;
-            transition: opacity 1s ease;
-            font-size: 18px;
-            color: #444;
-        }
+.mostrar {
+    opacity: 1;
+}
 
-        .mostrar {
-            opacity: 1;
-        }
-    </style>
+/* Corazones flotando */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="card">
-        <h1>Para Albania ❤️</h1>
-        <p>Eres la razón por la que sonrío cada día.</p>
-        <button onclick="mostrarMensaje()">Haz clic aquí</button>
-        <div id="mensaje" class="mensaje">
-            Albania, contigo todo es más bonito. Gracias por existir en mi vida. 💕
-        </div>
+<div class="card">
+    <h1>Para Albania ❤️</h1>
+    <p>Eres mi lugar favorito en el mundo.</p>
+    <button id="btn" onclick="mostrarMensaje()">Haz clic aquí</button>
+    <div id="mensaje" class="mensaje">
+        Contigo todo es más bonito.  
+        Gracias por llenar mi vida de amor y felicidad. 💕
     </div>
+</div>
 
-    <script>
-        function mostrarMensaje() {
-            const mensaje = document.getElementById("mensaje");
-            mensaje.classList.add("mostrar");
-        }
-    </script>
+<script>
+function mostrarMensaje() {
+    const mensaje = document.getElementById("mensaje");
+    const boton = document.getElementById("btn");
+
+    mensaje.classList.add("mostrar");
+    boton.innerText = "Siempre te voy a amar ❤️";
+    boton.disabled = true;
+
+    crearCorazones();
+}
+
+function crearCorazones() {
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+}
+</script>
 
 </body>
 </html>
