@@ -70,6 +70,10 @@ button:hover {
     opacity: 0.8;
 }
 
+.rounded_image {
+    border-radius: 25px;
+}
+
 @keyframes floatUp {
     0% {
         transform: translateY(0) scale(1);
@@ -92,17 +96,21 @@ button:hover {
     <div id="mensaje" class="mensaje">
         Contigo todo es más bonito.  
         Gracias por llenar mi vida de amor y felicidad. 💕
+        <img src=https://1drv.ms/u/c/13b979beda9c5651/IQQbiXUBpnuNSKu3-7NJ6OClAfc3s8ZxJhgXihkow74lJb4?height=256 id= rounded_image class="rounded_image">
     </div>
+    
 </div>
 
 <script>
 function mostrarMensaje() {
     const mensaje = document.getElementById("mensaje");
     const boton = document.getElementById("btn");
+    const rounded_image = document.getElementById("rounded_image");
 
     mensaje.classList.add("mostrar");
     boton.innerText = "Siempre te voy a amar ❤️";
     boton.disabled = true;
+    rounded_image.classList.add("mostrar")
 
     crearCorazones();
 }
